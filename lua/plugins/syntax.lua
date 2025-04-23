@@ -1,5 +1,10 @@
 return {
-    -- syntax highlighting
+    -- kanagawa syntax highlighting
     "rebelot/kanagawa.nvim",
-    "vague2k/vague.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        vim.cmd.colorscheme 'kanagawa-dragon'
+        vim.cmd([[highlight CursorLine cterm=NONE ctermbg=NONE guibg=NONE]])
+    end
 }

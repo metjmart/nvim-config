@@ -1,7 +1,8 @@
 -- Starting with defining simple options through Lua following Kickstart
 
--- Define the leader
+-- Define the leaders
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Turn on line numbers by default
 vim.opt.number = true
@@ -114,48 +115,4 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Structured setup for lazy
 -- See ~/.config/nvim/lua/config/lazy.lua
 require("config.lazy")
-
--- Setup for treesitter
-require'nvim-treesitter.configs'.setup {
-    -- A list of parser names, or "all" (the listed parsers must be installed)
-    -- Note - dependencies for parsers include:
-    --   Javascript runtime and C compiler in PATH (default for JS is node)
-    --   Make sure C compiler and node are installed
-    ensure_installed = { 'bash', 'bibtex', 'c', 'diff', 'fortran', 'html', 'julia', 'latex', 'lua', 'luadoc', 'make', 'markdown', 'markdown_inline', 'python', 'rust', 'tmux', 'vim', 'vimdoc', 'xml', 'yaml', 'zig' },
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = false,
-    -- Automatically install missing parsers when entering buffer
-    auto_install = false,
-    highlight = {
-        enable = true
-    },
-}
-
--- Setup for Mason
-require('mason').setup()
-require('mason-lspconfig').setup()
-
--- Setup for LSPs (note - LSPs must first be installed via Mason)
--- E.g: nvim -> :Mason -> :LspInstall [<server>...]
-vim.lsp.enable('pyright')
-vim.lsp.enable('marksman')
-
----- Setup for telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-
--- Setup for neotree
-vim.keymap.set('n', 'tt', ':Neotree source=filesystem reveal=true position=right<CR>')
-
--- Setup for syntax highlighting
-require('kanagawa').setup({})
-vim.cmd.colorscheme 'kanagawa-dragon'
---require('vague').setup({})
---vim.cmd.colorscheme 'vague'
-
--- Modify CursorLine highlight group to remove in-line highlighting
-vim.cmd([[highlight CursorLine cterm=NONE ctermbg=NONE guibg=NONE]])
 
