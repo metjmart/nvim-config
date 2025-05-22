@@ -7,45 +7,14 @@ return {
       'MunifTanjim/nui.nvim',
     },
     lazy = false,
-    ---@module 'neo-tree'
-    ---@type neotree.Config?
+    --@module 'neo-tree'
+    --@type neotree.Config?
     opts = {
     },
     config = function()
-        -- Setup for treesitter
-        require'nvim-treesitter.configs'.setup {
-            -- A list of parser names, or "all" (the listed parsers must be installed)
-            -- Note - dependencies for parsers include:
-            --   Javascript runtime and C compiler in PATH (default for JS is node)
-            --   Make sure C compiler and node are installed
-            ensure_installed = { 'bash',
-                'bibtex',
-                'c',
-                'diff',
-                'fortran',
-                'html',
-                'julia',
-                'latex',
-                'lua',
-                'luadoc',
-                'make',
-                'markdown',
-                'markdown_inline',
-                'python',
-                'rust',
-                'tmux',
-                'vim',
-                'vimdoc',
-                'xml',
-                'yaml',
-                'zig'
-            },
-            -- Install parsers synchronously (only applied to `ensure_installed`)
-            sync_install = false,
-            -- Automatically install missing parsers when entering buffer
-            auto_install = false,
-            highlight = { enable = true },
-            indent = { enable = true }
-        }
+        -- setup neotree keymaps
+        vim.keymap.set('n', '<leader>b', ':Neotree toggle buffers position=float<cr>', {silent = true, desc = 'Show open buffers in Neotree'})
+        vim.keymap.set('n', '<leader>s', ':Neotree toggle float git_status<cr>', {silent = true, desc = 'Git status in Neotree'})
+        vim.keymap.set('n', '<leader>t', ':Neotree toggle position=float<CR>', {silent = true, desc = 'Open Neotree in current buffer (e.g., netrw)'})
     end
 }
