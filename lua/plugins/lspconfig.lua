@@ -29,7 +29,7 @@ return {
             vim.lsp.config('fortls', {
                 cmd = {
                     'fortls',
-                    '--lowercase_intrisics',
+                    '--lowercase_intrinsics',
                     '--hover_signature',
                     '--hover_language=fortran',
                     '--use_signature_help'
