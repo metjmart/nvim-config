@@ -30,6 +30,15 @@ return {
                         end
                     end
                     )
+                    -- staging/reset hunks
+                    map('n', '<leader>hs', gitsigns.stage_hunk)
+                    map('n', '<leader>hr', gitsigns.reset_hunk)
+                    map('v', '<leader>hs', function()
+                      gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+                    end)
+                    map('v', '<leader>hr', function()
+                      gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+                    end)
                     -- preview hunks
                     map('n', '<leader>hh', gitsigns.preview_hunk)
                     map('n', '<leader>hi', gitsigns.preview_hunk_inline)
