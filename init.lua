@@ -5,8 +5,5 @@ require('vimopts')
 -- see ~/.config/nvim/lua/config/lazy.lua
 require("config.lazy")
 
--- LOH
+-- TODO: configure snippets
 
--- Need to finish setting up lsp for nvim-cmp (see completions.lua)
---   See nvim-cmp wiki for adding icons to autocomplete menu
---   Configure snippets
