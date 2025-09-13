@@ -15,6 +15,6 @@ return {
         -- setup neotree keymaps
         vim.keymap.set('n', '<leader>b', ':Neotree toggle buffers position=float<cr>', {silent = true, desc = 'Show open buffers in Neotree'})
         vim.keymap.set('n', '<leader>s', ':Neotree toggle float git_status<cr>', {silent = true, desc = 'Git status in Neotree'})
-        vim.keymap.set('n', '<leader>t', ':Neotree toggle position=float<CR>', {silent = true, desc = 'Open Neotree in current buffer (e.g., netrw)'})
+        vim.keymap.set('n', '<leader>tt', ':Neotree toggle position=float<CR>', {silent = true, desc = 'Open Neotree in current buffer (e.g., netrw)'})
     end
 }
